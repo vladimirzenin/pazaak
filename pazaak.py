@@ -89,11 +89,26 @@ def step(board, cards, handles_card, score):
 
     score = score + selected_card_general
 
-    str_ = 'Your score: ' + str(score)
-    
+    hand_gamer = ''
+    for i in handles_card:
+        hand_gamer = hand_gamer + ', ' + str(i)
+
+    str_ = 'Your score: ' + str(score) + '. Доступна рука игрока: ' + hand_gamer
     print(str_)
 
-    select_card = input()
+    select_card = int(input())
+
+    select_done = False
+    while not select_done:
+        ind = handles_card.index(select_card)
+        if ind > 0:
+            handles_card.pop(ind)
+            select_done = True
+
+    
+            
+
+
 
 if __name__ == "__main__":
     main()
