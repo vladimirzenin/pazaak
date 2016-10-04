@@ -1,2 +1,2 @@
 # pazaak
-Card game from Star Wars
+Console card game from Star Wars
