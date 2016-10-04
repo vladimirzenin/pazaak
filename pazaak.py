@@ -36,7 +36,7 @@ def main():
     
     board_player1   = array.array('H') # Доска игрока 1
     board_player2   = array.array('H') # Доска игрока 2
-    
+
     score_b_pl1     = 0                # Счет игрока 1
     score_b_pl2     = 0                # Счет игрока 2
 
@@ -47,14 +47,10 @@ def main():
     init_cards(cards, handles_player1, handles_player2)
 
     cancel_round = False
-    while !cancel_round:
-        step(board, cards, handles_player1)
-        step(board, cards, handles_player2)
-        calc_win(board_player1,
-                board_player2,
-                score_b_pl1,
-                score_b_pl2)
-
+    while not cancel_round:
+        step(board_player1, cards, handles_player1, score_b_pl1)
+        step(board_player2, cards, handles_player2, score_b_pl2)
+        cancel_round = true
 
 def init_cards(cards, handles_player1, handles_player2):
     print('Select cards...')
@@ -78,8 +74,26 @@ def init_cards(cards, handles_player1, handles_player2):
         handles_player2.append(x) 
         m = m + 1  
 
-def step():
-    print('Your step...')
+def step(board, cards, handles_card, score):
+    
+    ind = 0
+    ind_board = -1
+    while ind <= 8:
+        if board[ind] = 0
+            ind_board = ind
+            break
+        ind = ind + 1 
+
+    ind_selected_card_general = random.randint(0,cards.len)
+    selected_card_general = cards[ind_selected_card_general]
+    cards.remove(ind_selected_card_general)
+
+    score = score + selected_card_general
+
+    str_ = 'Your score: ' + str(score)
+    
+    print(str_)
+
     select_card = input()
 
 if __name__ == "__main__":
