@@ -31,11 +31,11 @@ def main():
     print('Starting pazaak math')
 
     cards           = array.array('H') # Главная колода
-    handles_player1 = array.array('H') # Рука игрока 1
-    handles_player2 = array.array('H') # Рука игрока 2
-    
-    board_player1   = array.array('H') # Доска игрока 1
-    board_player2   = array.array('H') # Доска игрока 2
+    handles_player1 = array.array('H', [0,0,0,0]) # Рука игрока 1
+    handles_player2 = array.array('H', [0,0,0,0]) # Рука игрока 2
+
+    board_player1   = array.array('H', [0,0,0,0,0,0,0,0,0]) # Доска игрока 1
+    board_player2   = array.array('H', [0,0,0,0,0,0,0,0,0]) # Доска игрока 2
 
     score_b_pl1     = 0                # Счет игрока 1
     score_b_pl2     = 0                # Счет игрока 2
@@ -43,14 +43,13 @@ def main():
     full_score_pl1  = 0                # Выиграно партий игроком 1
     full_score_pl2  = 0                # Выиграно партий игроком 2
 
-
     init_cards(cards, handles_player1, handles_player2)
 
     cancel_round = False
     while not cancel_round:
         step(board_player1, cards, handles_player1, score_b_pl1)
         step(board_player2, cards, handles_player2, score_b_pl2)
-        cancel_round = true
+        cancel_round = True
 
 def init_cards(cards, handles_player1, handles_player2):
     print('Select cards...')
@@ -79,14 +78,14 @@ def step(board, cards, handles_card, score):
     ind = 0
     ind_board = -1
     while ind <= 8:
-        if board[ind] = 0
+        if board[ind] == 0:
             ind_board = ind
             break
         ind = ind + 1 
 
-    ind_selected_card_general = random.randint(0,cards.len)
+    ind_selected_card_general = random.randint(0, len(cards) )
     selected_card_general = cards[ind_selected_card_general]
-    cards.remove(ind_selected_card_general)
+    cards.pop(ind_selected_card_general)
 
     score = score + selected_card_general
 
