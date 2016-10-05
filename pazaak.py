@@ -31,8 +31,8 @@ def main():
     print('Starting pazaak math')
 
     cards           = array.array('H') # Главная колода
-    handles_player1 = array.array('H', [0,0,0,0]) # Рука игрока 1
-    handles_player2 = array.array('H', [0,0,0,0]) # Рука игрока 2
+    handles_player1 = array.array('H') # Рука игрока 1
+    handles_player2 = array.array('H') # Рука игрока 2
 
     board_player1   = array.array('H', [0,0,0,0,0,0,0,0,0]) # Доска игрока 1
     board_player2   = array.array('H', [0,0,0,0,0,0,0,0,0]) # Доска игрока 2
@@ -63,12 +63,12 @@ def init_cards(cards, handles_player1, handles_player2):
         i = i + 1
     
     m = 1
-    while m <= 10:
+    while m <= 4:
         x = random.randint(1,7)
         handles_player1.append(x)    
         m = m + 1
     m = 1
-    while m <= 10:
+    while m <= 4:
         x = random.randint(1,7)
         handles_player2.append(x) 
         m = m + 1  
@@ -95,11 +95,13 @@ def step(board, cards, handles_card, score):
 
     str_ = 'Your score: ' + str(score) + '. Доступна рука игрока: ' + hand_gamer
     print(str_)
-
-    select_card = int(input())
-
     select_done = False
     while not select_done:
+
+        user_input = input()
+        print('======================')
+        print(user_input)
+        select_card = int(user_input)
         ind = handles_card.index(select_card)
         if ind > 0:
             handles_card.pop(ind)
