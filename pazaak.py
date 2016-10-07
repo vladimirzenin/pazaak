@@ -99,17 +99,16 @@ def main():
         if full_score_pl1 == 3 and full_score_pl2 == 3:
             # Standoff math
             win_message = 'Standoff math!'
-            break
         elif full_score_pl1 == 3:
             # Player 1 win math
             win_message = 'Player 1 win math!'
-            break
         elif full_score_pl2 == 3:
             # Player 2 win math
             win_message = 'Player 2 win math!'
+        
+        if not win_message == '':
+            print(win_message)
             break
-
-        print(win_message)
 
 # Инициализация колод
 def init_cards(cards, handles_player1, handles_player2):
