@@ -73,7 +73,7 @@ def main():
             win_message = 'Standoff turn!'
             init_math = True            
         elif status_pl1 == 1:
-            # win player 1
+            # win player 1    
             full_score_pl1 = full_score_pl1 + 1
             win_message = 'Player 1 win turn!'
             init_math = True
